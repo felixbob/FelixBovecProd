@@ -23,17 +23,28 @@ async function startServer() {
   app.post("/api/webhooks/resend", express.raw({ type: 'application/json' }), async (req, res) => {
     const secret = process.env.RESEND_WEBHOOK_SECRET;
     const payload = req.body.toString();
+    
+    let msg: any;
 
     if (!secret) {
-      console.log("Resend Webhook received (unverified, missing secret):", payload);
-      return res.status(200).send("OK");
+      console.log("Resend Webhook received (unverified, missing secret).");
+      try {
+        msg = JSON.parse(payload);
+      } catch (e) {
+        return res.status(400).send("Invalid JSON");
+      }
+    } else {
+      try {
+        const wh = new Webhook(secret);
+        msg = wh.verify(payload, req.headers as Record<string, string>) as any;
+        console.log("Verified Resend webhook:", msg.type);
+      } catch (err) {
+        console.error("Webhook verification failed:", err);
+        return res.status(400).send("Webhook verification failed");
+      }
     }
 
     try {
-      const wh = new Webhook(secret);
-      const msg = wh.verify(payload, req.headers as Record<string, string>) as any;
-      console.log("Verified Resend webhook:", msg.type);
-
       // Auto-forward inbound emails
       if (msg.type === "email.received" || msg.type === "email.inbound") {
         const inboundData = msg.data;
@@ -41,7 +52,7 @@ async function startServer() {
           const resend = getResend();
           if (resend) {
             const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
-            const ownerEmail = "felix@komuskic.com";
+            const ownerEmail = "felix@gmail.com";
             const sender = inboundData.from || "Neznan pošiljatelj";
             const originalTo = Array.isArray(inboundData.to) ? inboundData.to.join(", ") : inboundData.to || "vas naslov";
             
