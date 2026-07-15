@@ -39,9 +39,7 @@ async function startServer() {
   const getResend = () => {
     if (!resendArgs) {
       // Use the provided API key if the env variable is the invalid old one or empty
-      const apiKey = process.env.RESEND_API_KEY && !process.env.RESEND_API_KEY.includes("eea03") 
-        ? process.env.RESEND_API_KEY 
-        : "re_BB4DQfR7_JrdAQ7j7W9FNd1av74bWstGU";
+      const apiKey = process.env.RESEND_API_KEY;
       resendArgs = new Resend(apiKey);
     }
     return resendArgs;
@@ -53,7 +51,7 @@ async function startServer() {
       
       const resend = getResend();
       if (!resend) {
-        return res.status(500).json({ error: "Server is not configured for email sending (Missing RESEND_API_KEY)." });
+        return res.status(500).json({ error: "Napaka: API ključ za Resend (RESEND_API_KEY) ni nastavljen ali pa ni veljaven." });
       }
 
       const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
@@ -78,7 +76,11 @@ async function startServer() {
       });
 
       if (error) {
-        return res.status(400).json({ error: error.message || JSON.stringify(error) });
+        let errorMsg = error.message || JSON.stringify(error);
+        if (errorMsg.includes("API key is invalid") || errorMsg.includes("Missing API")) {
+           errorMsg = "Napaka: API ključ za Resend (RESEND_API_KEY) ni veljaven. Preverite nastavitve.";
+        }
+        return res.status(400).json({ error: errorMsg });
       }
 
       res.status(200).json({ data });
@@ -89,6 +91,7 @@ async function startServer() {
 
   // API routes FIRST
   app.post("/api/contact", contactHandler);
+  app.post("/.netlify/functions/contact", contactHandler);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {

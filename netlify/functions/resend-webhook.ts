@@ -38,7 +38,7 @@ const handler: Handler = async (event, context) => {
     if (msg.type === "email.received" || msg.type === "email.inbound") {
       const inboundData = msg.data;
       if (inboundData) {
-        const apiKey = process.env.RESEND_API_KEY || "re_BB4DQfR7_JrdAQ7j7W9FNd1av74bWstGU";
+        const apiKey = process.env.RESEND_API_KEY || undefined;
         const resend = new Resend(apiKey);
         const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
         const ownerEmail = "felix@gmail.com";

@@ -15,7 +15,10 @@ const handler: Handler = async (event, context) => {
     const { name, email, phone, message } = JSON.parse(rawBody);
 
     // Initialize Resend
-    const apiKey = process.env.RESEND_API_KEY || "re_BB4DQfR7_JrdAQ7j7W9FNd1av74bWstGU";
+    const apiKey = process.env.RESEND_API_KEY || "";
+    if (!apiKey) {
+      return { statusCode: 500, body: JSON.stringify({ error: "Napaka: API ključ za Resend (RESEND_API_KEY) ni nastavljen." }) };
+    }
     const resend = new Resend(apiKey);
 
     const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
@@ -36,9 +39,13 @@ const handler: Handler = async (event, context) => {
     });
 
     if (error) {
+      let errorMsg = error.message || JSON.stringify(error);
+      if (errorMsg.includes("API key is invalid") || errorMsg.includes("Missing API")) {
+         errorMsg = "Napaka: API ključ za Resend (RESEND_API_KEY) ni veljaven. Preverite nastavitve.";
+      }
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: error.message || JSON.stringify(error) }),
+        body: JSON.stringify({ error: errorMsg }),
       };
     }
 
