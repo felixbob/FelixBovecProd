@@ -9,7 +9,7 @@ dotenv.config({ override: true });
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT || 3000;
 
   // Redirect HTTP to HTTPS in production
   app.use((req, res, next) => {
