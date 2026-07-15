@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Handler } from "@netlify/functions";
 import { Resend } from "resend";
 

@@ -2,7 +2,6 @@ import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { Resend } from "resend";
-import { Webhook } from "svix";
 import dotenv from "dotenv";
 
 dotenv.config({ override: true });
@@ -17,63 +16,6 @@ async function startServer() {
       return res.redirect(308, `https://${req.headers.host}${req.url}`);
     }
     next();
-  });
-
-  // Webhook for Resend needs the raw body
-  app.post("/api/webhooks/resend", express.raw({ type: 'application/json' }), async (req, res) => {
-    const secret = process.env.RESEND_WEBHOOK_SECRET;
-    const payload = req.body.toString();
-    
-    let msg: any;
-
-    if (!secret) {
-      console.log("Resend Webhook received (unverified, missing secret).");
-      try {
-        msg = JSON.parse(payload);
-      } catch (e) {
-        return res.status(400).send("Invalid JSON");
-      }
-    } else {
-      try {
-        const wh = new Webhook(secret);
-        msg = wh.verify(payload, req.headers as Record<string, string>) as any;
-        console.log("Verified Resend webhook:", msg.type);
-      } catch (err) {
-        console.error("Webhook verification failed:", err);
-        return res.status(400).send("Webhook verification failed");
-      }
-    }
-
-    try {
-      // Auto-forward inbound emails
-      if (msg.type === "email.received" || msg.type === "email.inbound") {
-        const inboundData = msg.data;
-        if (inboundData) {
-          const resend = getResend();
-          if (resend) {
-            const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
-            const ownerEmail = "felix@gmail.com";
-            const sender = inboundData.from || "Neznan pošiljatelj";
-            const originalTo = Array.isArray(inboundData.to) ? inboundData.to.join(", ") : inboundData.to || "vas naslov";
-            
-            await resend.emails.send({
-              from: fromEmail,
-              to: [ownerEmail],
-              replyTo: sender,
-              subject: `[Posredovano - ${originalTo}] ${inboundData.subject || 'Brez zadeve'}`,
-              text: `Posredovano od: ${sender}\n\n${inboundData.text || ''}`,
-              html: inboundData.html ? `<div><small>Posredovano od: <b>${sender}</b></small></div><hr/><br/>${inboundData.html}` : undefined
-            });
-            console.log("Inbound email forwarded successfully to", ownerEmail);
-          }
-        }
-      }
-
-      res.status(200).send("OK");
-    } catch (err) {
-      console.error("Webhook verification failed:", err);
-      res.status(400).send("Webhook verification failed");
-    }
   });
 
   app.use(express.json());
@@ -147,7 +89,6 @@ async function startServer() {
 
   // API routes FIRST
   app.post("/api/contact", contactHandler);
-  app.post("/.netlify/functions/contact", contactHandler);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
