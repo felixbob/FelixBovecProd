@@ -8,7 +8,7 @@ dotenv.config({ override: true });
 
 async function startServer() {
   const app = express();
-  const PORT = process.env.PORT || 3000;
+  const PORT = Number(process.env.PORT) || 3000;
 
   // Redirect HTTP to HTTPS in production
   app.use((req, res, next) => {
@@ -38,7 +38,6 @@ async function startServer() {
   let resendArgs: Resend | null = null;
   const getResend = () => {
     if (!resendArgs) {
-      // Use the provided API key if the env variable is the invalid old one or empty
       const apiKey = process.env.RESEND_API_KEY;
       resendArgs = new Resend(apiKey);
     }
@@ -89,9 +88,65 @@ async function startServer() {
     }
   };
 
+  const webhookHandler = async (req: express.Request, res: express.Response) => {
+    try {
+      console.log("Received webhook payload:", req.body);
+      const resend = getResend();
+      if (!resend) {
+        return res.status(500).json({ error: "Resend is not configured." });
+      }
+
+      // Check if it's an inbound email payload or event payload
+      const payload = req.body.type === "email.received" && req.body.data ? req.body.data : req.body;
+
+      const { from, to, subject, html, text } = payload;
+      const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
+      const toEmail = "felix@komuskic.com";
+
+      // Prepare forwarded email content
+      const forwardedSubject = `FWD: ${subject || "No Subject"}`;
+      const forwardedText = `
+Zadeva: ${subject || "Brez zadeve"}
+Od: ${from || "Neznano"}
+Za: ${Array.isArray(to) ? to.join(", ") : to || "Neznano"}
+
+-------------------------------------------
+
+${text || ""}
+      `;
+      const forwardedHtml = `
+<p><strong>Zadeva:</strong> ${subject || "Brez zadeve"}</p>
+<p><strong>Od:</strong> ${from || "Neznano"}</p>
+<p><strong>Za:</strong> ${Array.isArray(to) ? to.join(", ") : to || "Neznano"}</p>
+<hr />
+${html || ""}
+      `;
+
+      const { data, error } = await resend.emails.send({
+        from: fromEmail,
+        to: [toEmail],
+        subject: forwardedSubject,
+        text: forwardedText,
+        html: forwardedHtml,
+      });
+
+      if (error) {
+        console.error("Webhook forwarding error:", error);
+        return res.status(400).json({ error: error.message });
+      }
+
+      console.log("Forwarded successfully:", data);
+      res.status(200).json({ success: true, data });
+    } catch (error) {
+      console.error("Webhook processing error:", error);
+      res.status(500).json({ error: "Failed to process webhook." });
+    }
+  };
+
   // API routes FIRST
   app.post("/api/contact", contactHandler);
   app.post("/.netlify/functions/contact", contactHandler);
+  app.post("/api/webhook/resend", webhookHandler);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {

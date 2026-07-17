@@ -35,17 +35,22 @@ const handler: Handler = async (event, context) => {
   }
 
   try {
+    console.log("Parsed message type:", msg?.type);
     if (msg.type === "email.received" || msg.type === "email.inbound") {
       const inboundData = msg.data;
       if (inboundData) {
-        const apiKey = process.env.RESEND_API_KEY || undefined;
-        const resend = new Resend(apiKey);
+        const apiKey = process.env.RESEND_API_KEY;
+        console.log("Initializing Resend with key configured:", !!apiKey);
+        
+        const resend = new Resend(apiKey || undefined);
         const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
-        const ownerEmail = "felix@gmail.com";
+        const ownerEmail = process.env.RESEND_TO_EMAIL || "felix@komuskic.com";
         const sender = inboundData.from || "Neznan pošiljatelj";
         const originalTo = Array.isArray(inboundData.to) ? inboundData.to.join(", ") : inboundData.to || "vas naslov";
 
-        await resend.emails.send({
+        console.log(`Forwarding email from=${fromEmail} to=${ownerEmail} (original sender=${sender}, original recipient=${originalTo})`);
+
+        const response = await resend.emails.send({
           from: fromEmail,
           to: [ownerEmail],
           replyTo: sender,
@@ -53,13 +58,37 @@ const handler: Handler = async (event, context) => {
           text: `Posredovano od: ${sender}\n\n${inboundData.text || ''}`,
           html: inboundData.html ? `<div><small>Posredovano od: <b>${sender}</b></small></div><hr/><br/>${inboundData.html}` : undefined
         });
-        console.log("Inbound email forwarded successfully to", ownerEmail);
+
+        if (response.error) {
+          console.error("Resend API failed to forward the email:", response.error);
+          return { 
+            statusCode: 500, 
+            body: JSON.stringify({ 
+              success: false, 
+              error: response.error.message || "Resend error",
+              details: response.error
+            }) 
+          };
+        }
+
+        console.log("Inbound email forwarded successfully! ID:", response.data?.id);
+      } else {
+        console.warn("No inbound data found in payload data block.");
       }
+    } else {
+      console.log(`Received non-inbound event type: ${msg.type}. Skipping forwarding.`);
     }
     return { statusCode: 200, body: "OK" };
-  } catch (err) {
-    console.error("Webhook forwarding failed:", err);
-    return { statusCode: 500, body: "Failed" };
+  } catch (err: any) {
+    console.error("Webhook forwarding crashed with exception:", err);
+    return { 
+      statusCode: 500, 
+      body: JSON.stringify({ 
+        success: false, 
+        error: "Internal Server Error", 
+        message: err.message 
+      }) 
+    };
   }
 };
 

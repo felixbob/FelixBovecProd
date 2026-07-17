@@ -28,12 +28,12 @@ export default function Hero() {
           className="flex flex-col items-center"
         >
           {/* Main Logo */}
-          <div className="bg-brand-text p-10 rounded-[2px] mb-10 inline-flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.5)] border-[0.5px] border-black/20 h-48 w-48 lg:h-56 lg:w-56 overflow-hidden">
-            <img src="/felixFIN.png" alt="Felix Logo" className="h-full w-full object-contain" onError={(e) => {
+          <div className="mb-10 inline-flex items-center justify-center h-48 w-48 lg:h-56 lg:w-56">
+            <img src="/felixFIN.png" alt="Felix Logo" className="h-full w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.nextElementSibling?.classList.remove('hidden');
               }} />
-              <h1 className="hidden text-5xl lg:text-7xl tracking-tighter text-black mb-0 font-sans font-bold">FELIX</h1>
+              <h1 className="hidden text-5xl lg:text-7xl tracking-tighter text-brand-text mb-0 font-sans font-bold">FELIX</h1>
           </div>
           
           <h2 className="text-2xl md:text-4xl text-brand-text mb-12 drop-shadow-lg max-w-2xl mx-auto font-serif italic font-normal">

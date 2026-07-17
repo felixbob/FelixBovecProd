@@ -1,4 +1,4 @@
-export type Language = 'sl' | 'en' | 'it' | 'de' | 'fr';
+export type Language = 'sl' | 'en' | 'it' | 'de' | 'fr' | 'es';
 
 export const dict = {
   sl: {
@@ -294,6 +294,65 @@ export const dict = {
       hoursTitle: 'Heures d\'ouverture',
       hours: 'TOUS LES JOURS : 11:00 - 22:00 | Cuisine : 11:00 - 21:00',
       reservationsNotice: 'Les réservations sont acceptées exclusivement pour les grands groupes.',
+    }
+  },
+  es: {
+    nav: { menu: 'Menú', gallery: 'Galería', contact: 'Contacto' },
+    hero: { title: 'Felix Bar & Food', subtitle: 'Vibras locales y comida deliciosa en Bovec', cta: 'Nuestro menú' },
+    gallery: { title: 'Momentos de nuestros clientes' },
+    menu: {
+      title: 'Nuestro Menú',
+      burgers: 'Hamburguesas (! patatas fritas no incluidas !)',
+      localFood: 'Platos principales',
+      salads: 'Ensaladas',
+      extras: 'Extras y Salsas',
+      drinksCategory: 'Bebidas',
+      beefBurger: 'Hamburguesa de ternera (Punto medio)',
+      beefBurgerDesc: 'Pan con sésamo, hamburguesa de ternera 100% de 250 g, salsa de mayonesa casera, queso cheddar, crujiente bacon, lechuga, tomate y cebolla.',
+      balkanBurger: 'Hamburguesa estilo bálcanico (Punto medio)',
+      balkanBurgerDesc: 'Hamburguesa de ternera 100% de 250 g, pan lepinja, kajmak, salsa de pimiento asado y cebolla blanca.',
+      chickenBurger: 'Hamburguesa de pollo',
+      chickenBurgerDesc: 'Pan con sésamo, filete de pollo empanado de 120 g, salsa casera, queso cheddar, ensalada de col (coleslaw), lechuga, tomate y cebolla.',
+      vegBurger: 'Hamburguesa vegetariana',
+      vegBurgerDesc: 'Pan con sésamo, hamburguesa vegana eslovena (AMAZE) de 125 g, salsa de mayonesa casera, queso cheddar, rúcula, tomate y cebolla.',
+      veganBurger: 'Hamburguesa vegana',
+      veganBurgerDesc: 'Pan vegano, hamburguesa vegana eslovena (AMAZE) de 125 g, mayonesa vegana, queso cheddar vegano, rúcula, tomate y cebolla.',
+      burgerToppings: 'Ingredientes para hamburguesas',
+      burgerToppingsDesc: 'Bacon / Cheddar / Lechuga / Rúcula / Tomate / Cebolla • Hamburguesa extra con queso y bacon',
+      friedChicken: 'Filete de pollo frito (240 g)',
+      friedChickenDesc: 'Empanado con harina sin gluten y copos de maíz con cúrcuma y ajo en polvo.',
+      sausage: 'Salchicha local con mostaza',
+      sausageDesc: 'Una salchicha local o una pareja.',
+      jota: 'Jota',
+      jotaDesc: 'Guiso tradicional con nabo ácido, chucrut, alubias, patatas y panceta. Con salchicha local.',
+      saladSmall: 'Ensalada pequeña',
+      saladSmallDesc: 'Ensalada mixta, rúcula, tomate y semillas de calabaza.',
+      saladLocal: 'Ensalada pequeña con requesón local',
+      saladLocalDesc: 'Ensalada mixta, rúcula, tomate, semillas de calabaza y requesón de cabra local.',
+      saladChicken: 'Ensalada con pollo frito empanado',
+      saladChickenDesc: 'Ensalada mixta, rúcula, tomate, semillas de calabaza y pollo frito.',
+      coleslaw: 'Ensalada de col (Coleslaw)',
+      coleslawDesc: 'Ensalada pequeña de col con yogur y crema agria.',
+      extrasDocs: 'Patatas pequeñas • Patatas grandes • Patatas con ajo y parmesano • Pan / Lepinja',
+      saucesDocs: 'Ketchup / Mayonesa / Barbacoa / Tártara / Kajmak / Requesón de cabra local y más.',
+      drinks: 'Nuestras Bebidas',
+      drinksDesc: 'Cerveza de barril, cerveza artesana eslovena, vinos locales de Goriška brda, licores caseros y refrescantes cócteles de verano.',
+      toGo: 'Comida y bebida también para llevar (TO-GO).',
+      allergens: 'La lista de alérgenos está disponible a través del camarero.',
+      healthWarning: 'El Ministerio de Sanidad advierte: El consumo excesivo de alcohol es perjudicial para la salud.',
+    },
+    contact: {
+      title: 'Contacto y Ubicación',
+      name: 'Nombre',
+      email: 'Correo electrónico',
+      message: 'Mensaje',
+      send: 'Enviar',
+      address: 'Mala vas 16, 5230 Bovec',
+      findUs: 'Dónde estamos',
+      success: 'Mensaje enviado',
+      hoursTitle: 'Horario de apertura',
+      hours: 'TODOS LOS DÍAS: 11:00 - 22:00 | Cocina: 11:00 - 21:00',
+      reservationsNotice: 'Las reservas se aceptan exclusivamente para grupos grandes.',
     }
   }
 };
