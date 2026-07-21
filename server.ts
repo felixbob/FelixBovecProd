@@ -3,12 +3,16 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { Resend } from "resend";
 import dotenv from "dotenv";
+import compression from "compression";
 
 dotenv.config({ override: true });
 
 async function startServer() {
   const app = express();
   const PORT = Number(process.env.PORT) || 3000;
+
+  // Optimize bandwidth with compression
+  app.use(compression());
 
   // Redirect HTTP to HTTPS in production
   app.use((req, res, next) => {
@@ -101,13 +105,14 @@ async function startServer() {
 
       const { from, to, subject, html, text } = payload;
       const fromEmail = process.env.RESEND_FROM_EMAIL || "info@felix-bovec.si";
-      const toEmail = "felix@komuskic.com";
+      const toEmail = process.env.RESEND_TO_EMAIL || "felix@komuskic.com";
 
       // Prepare forwarded email content
-      const forwardedSubject = `FWD: ${subject || "No Subject"}`;
+      const forwardedSubject = `FWD: ${subject || "Brez zadeve"}`;
+      const sender = from || "Neznan pošiljatelj";
       const forwardedText = `
 Zadeva: ${subject || "Brez zadeve"}
-Od: ${from || "Neznano"}
+Od: ${sender}
 Za: ${Array.isArray(to) ? to.join(", ") : to || "Neznano"}
 
 -------------------------------------------
@@ -115,16 +120,20 @@ Za: ${Array.isArray(to) ? to.join(", ") : to || "Neznano"}
 ${text || ""}
       `;
       const forwardedHtml = `
-<p><strong>Zadeva:</strong> ${subject || "Brez zadeve"}</p>
-<p><strong>Od:</strong> ${from || "Neznano"}</p>
-<p><strong>Za:</strong> ${Array.isArray(to) ? to.join(", ") : to || "Neznano"}</p>
+<div>
+  <small>Posredovano od: <b>${sender}</b></small><br/>
+  <small>Prvotno poslano na: ${Array.isArray(to) ? to.join(", ") : to || "Neznano"}</small>
+</div>
 <hr />
-${html || ""}
+${html ? html : text ? `<p>${text}</p>` : ""}
       `;
+
+      console.log(`Forwarding email from=${fromEmail} to=${toEmail} (original sender=${sender})`);
 
       const { data, error } = await resend.emails.send({
         from: fromEmail,
         to: [toEmail],
+        replyTo: sender,
         subject: forwardedSubject,
         text: forwardedText,
         html: forwardedHtml,
@@ -147,6 +156,7 @@ ${html || ""}
   app.post("/api/contact", contactHandler);
   app.post("/.netlify/functions/contact", contactHandler);
   app.post("/api/webhook/resend", webhookHandler);
+  app.post("/.netlify/functions/resend-webhook", webhookHandler);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
