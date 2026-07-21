@@ -7,6 +7,16 @@
   node_bundler = "esbuild"
 
 [[redirects]]
+  from = "/api/webhook/resend"
+  to = "/.netlify/functions/resend-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/webhooks/resend"
+  to = "/.netlify/functions/resend-webhook"
+  status = 200
+
+[[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
