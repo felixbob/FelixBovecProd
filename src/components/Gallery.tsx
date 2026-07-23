@@ -3,20 +3,22 @@ import { useLanguage } from '../LanguageContext';
 import { motion } from 'motion/react';
 
 // Import images directly so Vite processes them properly
-import imgBurgerSpecial from '../assets/images/burger_special_1783940592831.jpg';
-import imgCrispyChickenSalad from '../assets/images/crispy_chicken_salad_1783940611493.jpg';
-import imgTerrace from '../assets/images/terrace.jpg';
-import imgTwoCrispyPlates from '../assets/images/two_crispy_plates_1783940626341.jpg';
-import imgBurger1 from '../assets/images/burger-1.jpg';
-import imgCout from '../assets/images/Cout.jpg';
+import imgBurgerSpecial from '../images/burger_special_1783940592831.jpg';
+import imgCrispyChickenSalad from '../images/crispy_chicken_salad_1783940611493.jpg';
+import imgTwoCrispyPlates from '../images/two_crispy_plates_1783940626341.jpg';
+import imgBurger1 from '../images/burger-1.jpg';
+import imgBurger2 from '../images/burger-2.jpg';
+import imgCout from '../images/Cout.jpg';
+import imgFood1 from '../images/food-1.jpg';
 
 const images = [
-  imgBurgerSpecial, // Poseben sočen burger s slanino
-  imgCrispyChickenSalad, // Pohano s solato in skuto
-  imgTerrace, // Terasa
-  imgTwoCrispyPlates, // Dva krožnika pohanega
-  imgBurger1, // Burger od blizu
-  imgCout  // Barvna zunanjost / terasa
+  imgBurgerSpecial,
+  imgCrispyChickenSalad,
+  imgTwoCrispyPlates,
+  imgBurger1,
+  imgBurger2,
+  imgCout,
+  imgFood1
 ];
 
 export default function Gallery() {

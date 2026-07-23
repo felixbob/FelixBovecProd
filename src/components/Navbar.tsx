@@ -3,7 +3,7 @@ import { useLanguage } from '../LanguageContext';
 import { Language } from '../i18n';
 import { Menu as MenuIcon, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import logoImg from '../assets/images/felixFIN.png';
+const logoImg = '/felixFIN.png';
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();

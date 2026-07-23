@@ -3,8 +3,8 @@ import { useLanguage } from '../LanguageContext';
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
-import imgBvout from '../assets/images/BVout.jpg';
-import logoImg from '../assets/images/felixFIN.png';
+import imgBvout from '../images/BVout.png';
+const logoImg = '/felixFIN.png';
 
 export default function Hero() {
   const { t } = useLanguage();

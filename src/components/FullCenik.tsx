@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import logoImg from '../assets/images/felixFIN.png';
+const logoImg = '/felixFIN.png';
 
 export default function FullCenik() {
   useEffect(() => {
