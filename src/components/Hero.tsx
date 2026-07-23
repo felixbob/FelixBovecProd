@@ -3,7 +3,7 @@ import { useLanguage } from '../LanguageContext';
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
-import imgBvout from '../assets/images/BVout.png';
+import imgBvout from '../assets/images/BVout.jpg';
 
 export default function Hero() {
   const { t } = useLanguage();
