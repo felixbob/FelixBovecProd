@@ -3,6 +3,7 @@ import { useLanguage } from '../LanguageContext';
 import { Language } from '../i18n';
 import { Menu as MenuIcon, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import logoImg from '../assets/images/felixFIN.png';
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
@@ -37,7 +38,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <a href="#" className="flex-shrink-0 flex items-center gap-2">
-              <img src="/felixFIN.png" alt="Felix Bar & Food" className="h-12 w-auto object-contain" onError={(e) => {
+              <img src={logoImg} alt="Felix Bar & Food" className="h-12 w-auto object-contain" onError={(e) => {
                 // Fallback to text if logo not found
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.nextElementSibling?.classList.remove('hidden');

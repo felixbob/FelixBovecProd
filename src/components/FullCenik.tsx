@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import logoImg from '../assets/images/felixFIN.png';
 
 export default function FullCenik() {
   useEffect(() => {
@@ -177,7 +178,7 @@ export default function FullCenik() {
         
         <header className="text-center mb-16 pt-8">
           <div className="flex justify-center mb-6">
-            <img src="/felixFIN.png" alt="Felix Logo" className="h-24 w-auto object-contain bg-brand-text p-2 rounded-sm" />
+            <img src={logoImg} alt="Felix Logo" className="h-24 w-auto object-contain bg-brand-text p-2 rounded-sm" />
           </div>
           <h1 className="text-4xl font-serif italic text-brand-gold uppercase tracking-widest mb-4">
             Cenik / Menu

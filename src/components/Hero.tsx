@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
 import imgBvout from '../assets/images/BVout.jpg';
+import logoImg from '../assets/images/felixFIN.png';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -15,9 +16,9 @@ export default function Hero() {
         <img 
           src={imgBvout} 
           alt="Felix Bovec Exterior" 
-          className="absolute inset-0 w-full h-full object-cover opacity-60 filter brightness-[90%] contrast-[110%] scale-105"
+          className="absolute inset-0 w-full h-full object-cover opacity-80 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/10 via-brand-bg/60 to-brand-bg z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/30 via-brand-bg/50 to-brand-bg z-10" />
       </div>
 
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-12">
@@ -29,7 +30,7 @@ export default function Hero() {
         >
           {/* Main Logo */}
           <div className="mb-10 inline-flex items-center justify-center h-48 w-48 lg:h-56 lg:w-56">
-            <img src="/felixFIN.png" alt="Felix Logo" className="h-full w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" onError={(e) => {
+            <img src={logoImg} alt="Felix Logo" className="h-full w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.nextElementSibling?.classList.remove('hidden');
               }} />

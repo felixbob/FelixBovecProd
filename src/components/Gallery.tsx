@@ -50,11 +50,10 @@ export default function Gallery() {
               <img
                 src={src}
                 alt={`Gallery image ${index + 1}`}
-                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
+                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
-                referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-brand-bg/40 group-hover:bg-transparent transition-colors duration-500"></div>
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
             </motion.div>
           ))}
         </div>
