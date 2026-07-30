@@ -57,7 +57,7 @@ export const dict = {
       success: 'Sporočilo poslano',
       hoursTitle: 'Odpiralni čas',
       hours: 'VSAK DAN: 11:00 - 22:00 | Kuhinja: 11:00 - 21:00',
-      reservationsNotice: 'Rezervacije sprejemamo izključno za velike grupe.',
+      reservationsNotice: 'Julija in avgusta rezervacije niso možne. Izven poletne sezone sprejemamo rezervacije za večje skupine.',
     }
   },
   en: {
@@ -116,7 +116,7 @@ export const dict = {
       success: 'Message sent',
       hoursTitle: 'Opening Hours',
       hours: 'EVERY DAY: 11:00 - 22:00 | Kitchen: 11:00 - 21:00',
-      reservationsNotice: 'Reservations are exclusively accepted for large groups.',
+      reservationsNotice: 'Reservations are not possible in July and August. Outside the summer season, we accept reservations for larger groups.',
     }
   },
   it: {
@@ -175,7 +175,7 @@ export const dict = {
       success: 'Messaggio inviato',
       hoursTitle: 'Orari di Apertura',
       hours: 'OGNI GIORNO: 11:00 - 22:00 | Cucina: 11:00 - 21:00',
-      reservationsNotice: 'Le prenotazioni sono accettate esclusivamente per gruppi numerosi.',
+      reservationsNotice: 'Le prenotazioni non sono possibili in luglio e agosto. Al di fuori della stagione estiva, accettiamo prenotazioni per gruppi numerosi.',
     }
   },
   de: {
@@ -234,7 +234,7 @@ export const dict = {
       success: 'Nachricht gesendet',
       hoursTitle: 'Öffnungszeiten',
       hours: 'JEDEN TAG: 11:00 - 22:00 | Küche: 11:00 - 21:00',
-      reservationsNotice: 'Reservierungen werden ausschließlich für große Gruppen entgegengenommen.',
+      reservationsNotice: 'Im Juli und August sind keine Reservierungen möglich. Außerhalb der Sommersaison nehmen wir Reservierungen für größere Gruppen entgegen.',
     }
   },
   fr: {
@@ -293,7 +293,7 @@ export const dict = {
       success: 'Message envoyé',
       hoursTitle: 'Heures d\'ouverture',
       hours: 'TOUS LES JOURS : 11:00 - 22:00 | Cuisine : 11:00 - 21:00',
-      reservationsNotice: 'Les réservations sont acceptées exclusivement pour les grands groupes.',
+      reservationsNotice: 'Les réservations ne sont pas possibles en juillet et en août. En dehors de la saison estivale, nous acceptons les réservations pour les grands groupes.',
     }
   },
   es: {
@@ -352,7 +352,7 @@ export const dict = {
       success: 'Mensaje enviado',
       hoursTitle: 'Horario de apertura',
       hours: 'TODOS LOS DÍAS: 11:00 - 22:00 | Cocina: 11:00 - 21:00',
-      reservationsNotice: 'Las reservas se aceptan exclusivamente para grupos grandes.',
+      reservationsNotice: 'Las reservas no son posibles en julio y agosto. Fuera de la temporada de verano, aceptamos reservas para grupos más grandes.',
     }
   }
 };

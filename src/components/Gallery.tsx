@@ -15,7 +15,6 @@ const images = [
   imgBurgerSpecial,
   imgCrispyChickenSalad,
   imgTwoCrispyPlates,
-  imgBurger1,
   imgBurger2,
   imgCout,
   imgFood1
