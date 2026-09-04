@@ -27,6 +27,7 @@ const handler: Handler = async (event, context) => {
     const { data, error } = await resend.emails.send({
       from: fromEmail,
       to: [toEmail],
+      replyTo: email,
       subject: `Novo sporočilo s spletne strani - ${name}`,
       text: `
         Ime: ${name}
