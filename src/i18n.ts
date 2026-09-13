@@ -56,7 +56,7 @@ export const dict = {
       findUs: 'Kje smo',
       success: 'Sporočilo poslano',
       hoursTitle: 'Odpiralni čas',
-      hours: 'VSAK DAN: 12:00 - 22:00 | Kuhinja: 12:00 - 21:00 (10. in 11. 9. odprto 18:00 - 22:00)',
+      hours: 'VSE DNI RAZEN SOBOTE: 12:00 - 22:00 | Kuhinja: 12:00 - 21:00',
       reservationsNotice: 'Julija in avgusta rezervacije niso možne. Izven poletne sezone sprejemamo rezervacije za večje skupine.',
     }
   },
@@ -115,7 +115,7 @@ export const dict = {
       findUs: 'Find us',
       success: 'Message sent',
       hoursTitle: 'Opening Hours',
-      hours: 'EVERY DAY: 12:00 - 22:00 | Kitchen: 12:00 - 21:00 (Sep 10 & 11 open 18:00 - 22:00)',
+      hours: 'EVERY DAY EXCEPT SATURDAY: 12:00 - 22:00 | Kitchen: 12:00 - 21:00',
       reservationsNotice: 'Reservations are not possible in July and August. Outside the summer season, we accept reservations for larger groups.',
     }
   },
@@ -174,7 +174,7 @@ export const dict = {
       findUs: 'Dove siamo',
       success: 'Messaggio inviato',
       hoursTitle: 'Orari di Apertura',
-      hours: 'OGNI GIORNO: 12:00 - 22:00 | Cucina: 12:00 - 21:00 (10 e 11 sett. aperto 18:00 - 22:00)',
+      hours: 'TUTTI I GIORNI TRANNE IL SABATO: 12:00 - 22:00 | Cucina: 12:00 - 21:00',
       reservationsNotice: 'Le prenotazioni non sono possibili in luglio e agosto. Al di fuori della stagione estiva, accettiamo prenotazioni per gruppi numerosi.',
     }
   },
@@ -233,7 +233,7 @@ export const dict = {
       findUs: 'Wo wir sind',
       success: 'Nachricht gesendet',
       hoursTitle: 'Öffnungszeiten',
-      hours: 'JEDEN TAG: 12:00 - 22:00 | Küche: 12:00 - 21:00 (10. und 11. Sept. geöffnet 18:00 - 22:00)',
+      hours: 'JEDEN TAG AUSSER SAMSTAG: 12:00 - 22:00 | Küche: 12:00 - 21:00',
       reservationsNotice: 'Im Juli und August sind keine Reservierungen möglich. Außerhalb der Sommersaison nehmen wir Reservierungen für größere Gruppen entgegen.',
     }
   },
@@ -292,7 +292,7 @@ export const dict = {
       findUs: 'Nous trouver',
       success: 'Message envoyé',
       hoursTitle: 'Heures d\'ouverture',
-      hours: 'TOUS LES JOURS : 12:00 - 22:00 | Cuisine : 12:00 - 21:00 (10 et 11 sept. ouvert 18:00 - 22:00)',
+      hours: 'TOUS LES JOURS SAUF LE SAMEDI : 12:00 - 22:00 | Cuisine : 12:00 - 21:00',
       reservationsNotice: 'Les réservations ne sont pas possibles en juillet et en août. En dehors de la saison estivale, nous acceptons les réservations pour les grands groupes.',
     }
   },
@@ -351,7 +351,7 @@ export const dict = {
       findUs: 'Dónde estamos',
       success: 'Mensaje enviado',
       hoursTitle: 'Horario de apertura',
-      hours: 'TODOS LOS DÍAS: 12:00 - 22:00 | Cocina: 12:00 - 21:00 (10 y 11 de sept. abierto 18:00 - 22:00)',
+      hours: 'TODOS LOS DÍAS EXCEPTO EL SÁBADO: 12:00 - 22:00 | Cocina: 12:00 - 21:00',
       reservationsNotice: 'Las reservas no son posibles en julio y agosto. Fuera de la temporada de verano, aceptamos reservas para grupos más grandes.',
     }
   }
