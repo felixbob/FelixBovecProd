@@ -92,7 +92,7 @@ export default function Contact() {
               </div>
               <div className="flex items-start gap-4 text-brand-text opacity-80">
                 <Clock className="text-brand-gold shrink-0" size={24} />
-                <div className="font-serif italic leading-relaxed text-sm">
+                <div className="font-serif italic leading-relaxed text-sm whitespace-pre-line">
                   <strong className="tracking-widest opacity-80 text-[10px] uppercase font-sans not-italic">{t.contact.hoursTitle}</strong><br />
                   {t.contact.hours}
                 </div>
