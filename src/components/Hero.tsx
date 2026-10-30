@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/30 via-brand-bg/50 to-brand-bg z-10" />
       </div>
 
-      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-12">
+      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center pt-24 pb-8 sm:pt-20">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -29,7 +29,7 @@ export default function Hero() {
           className="flex flex-col items-center"
         >
           {/* Main Logo */}
-          <div className="mb-10 inline-flex items-center justify-center h-48 w-48 lg:h-56 lg:w-56">
+          <div className="mb-6 sm:mb-8 inline-flex items-center justify-center h-40 w-40 sm:h-48 sm:w-48 lg:h-56 lg:w-56">
             <img src={logoImg} alt="Felix Logo" className="h-full w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.nextElementSibling?.classList.remove('hidden');
@@ -37,16 +37,35 @@ export default function Hero() {
               <h1 className="hidden text-5xl lg:text-7xl tracking-tighter text-brand-text mb-0 font-sans font-bold">FELIX</h1>
           </div>
           
-          <h2 className="text-2xl md:text-4xl text-brand-text mb-12 drop-shadow-lg max-w-2xl mx-auto font-serif italic font-normal">
+          <h2 className="text-xl md:text-3xl text-brand-text mb-6 drop-shadow-lg max-w-2xl mx-auto font-serif italic font-normal">
             {t.hero.subtitle}
           </h2>
-          
+
+          {/* Winter break & thank you notice badge */}
           <a
-            href="#menu"
-            className="inline-flex items-center gap-2 bg-brand-gold text-black px-10 py-4 rounded-sm font-bold uppercase tracking-[1px] text-sm transition-all hover:brightness-110 shadow-xl"
+            href="#zahvala"
+            className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-medium tracking-wide hover:bg-brand-gold/25 transition-all shadow-lg backdrop-blur-sm group"
           >
-            {t.hero.cta}
+            <span>❄️</span>
+            <span>{t.notice.badge}</span>
+            <span className="opacity-60">&bull;</span>
+            <span className="underline group-hover:text-white transition-colors">{t.notice.title}</span>
           </a>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#zahvala"
+              className="inline-flex items-center gap-2 bg-brand-gold text-black px-8 py-3.5 rounded-sm font-bold uppercase tracking-[1px] text-xs sm:text-sm transition-all hover:brightness-110 shadow-xl"
+            >
+              <span>{t.notice.title}</span>
+            </a>
+            <a
+              href="#menu"
+              className="inline-flex items-center gap-2 border border-white/20 bg-black/40 text-brand-text hover:border-brand-gold hover:text-brand-gold px-8 py-3.5 rounded-sm font-bold uppercase tracking-[1px] text-xs sm:text-sm transition-all shadow-xl"
+            >
+              {t.hero.cta}
+            </a>
+          </div>
         </motion.div>
       </div>
 

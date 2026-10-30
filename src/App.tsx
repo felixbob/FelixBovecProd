@@ -10,6 +10,7 @@ import Hero from './components/Hero';
 import Menu from './components/Menu';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
+import ThankYouSection from './components/ThankYouSection';
 import Footer from './components/Footer';
 import FullCenik from './components/FullCenik';
 
@@ -31,6 +32,7 @@ function AppContent() {
       <Navbar />
       <main>
         <Hero />
+        <ThankYouSection />
         <Menu />
         <Gallery />
         <Contact />

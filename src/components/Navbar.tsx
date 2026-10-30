@@ -23,17 +23,33 @@ export default function Navbar() {
   };
 
   const navLinks = [
+    { name: t.nav.thanks, href: '#zahvala' },
     { name: t.nav.menu, href: '#menu' },
     { name: t.nav.gallery, href: '#gallery' },
     { name: t.nav.contact, href: '#contact' },
   ];
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-bg/95 backdrop-blur-md border-b border-brand-border py-4' : 'bg-transparent py-5'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top Banner announcing closure until April 1st with thank you note */}
+      <a
+        href="#zahvala"
+        className="block bg-brand-gold text-black hover:brightness-105 px-4 py-2 text-center text-xs sm:text-sm font-bold tracking-wide shadow-md transition-all border-b border-black/10"
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2">
+          <span>❄️</span>
+          <span className="line-clamp-1 sm:line-clamp-none">{t.notice.banner}</span>
+          <span className="hidden sm:inline-block opacity-75 text-xs uppercase tracking-wider font-sans">
+            &bull; {t.notice.reopeningTitle}: {t.notice.reopeningDate}
+          </span>
+        </div>
+      </a>
+
+      <nav
+        className={`w-full transition-all duration-300 ${
+          isScrolled ? 'bg-brand-bg/95 backdrop-blur-md border-b border-brand-border py-3' : 'bg-brand-bg/75 backdrop-blur-sm py-4'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -130,5 +146,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </nav>
+    </header>
   );
 }

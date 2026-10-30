@@ -2,7 +2,7 @@ export type Language = 'sl' | 'en' | 'it' | 'de' | 'fr' | 'es';
 
 export const dict = {
   sl: {
-    nav: { menu: 'Meni', gallery: 'Galerija', contact: 'Kontakt' },
+    nav: { thanks: 'Zahvala', menu: 'Meni', gallery: 'Galerija', contact: 'Kontakt' },
     hero: { title: 'Felix Bar & Food', subtitle: 'Okrepčevalnica z lokalno dušo v Bovcu', cta: 'Naš meni' },
     gallery: { title: 'Utrinki naših gostov' },
     menu: {
@@ -56,12 +56,25 @@ export const dict = {
       findUs: 'Kje smo',
       success: 'Sporočilo poslano',
       hoursTitle: 'Odpiralni čas',
-      hours: 'Sob. 3. 10. in ned. 4. 10.: ZAPRTO\n5. 10. – 31. 10.: 12:00 - 15:00 & 18:00 - 22:00\n(Kuhinja: 12:00 - 14:30 & 18:00 - 21:00)\n1. 11. 2026 – 1. 4. 2027: ZAPRTO',
+      hours: 'ZAPRTO DO 1. 4. 2027 (Zimski premor)\nIskrena hvala vsem gostom za čudovito sezono 2026!\nPonovno se vidimo 1. aprila 2027.',
       reservationsNotice: 'Julija in avgusta rezervacije niso možne. Izven poletne sezone sprejemamo rezervacije za večje skupine.',
+    },
+    notice: {
+      banner: 'Restavracija je do 1. 4. zaprta. Iskrena hvala vsem gostom za čudovito sezono!',
+      badge: 'ZIMSKI PREMOR • DO 1. 4. 2027',
+      title: 'Dragi gostje, iskrena hvala!',
+      subtitle: 'Sezona 2026 je zaključena. Naša vrata ponovno odpremo 1. aprila 2027.',
+      text1: 'Za nami je še ena nepozabna sezona v Bovcu, polna pristnih okusov, odličnih trenutkov in prijetnih druženj. Iz srca se zahvaljujemo vsem domačim ter tujim gostom za vsak obisk, topel nasmeh, pohvale in dobro energijo.',
+      text2: 'Zdaj se odpravljamo na zaslužen zimski počitek. Spomladi se znova vidimo z novimi močmi, svežimi dobrotami in hladnim pivom! Želimo vam lepe in mirne zimske dni.',
+      reopeningTitle: 'Ponovno odprtje',
+      reopeningDate: '1. april 2027',
+      status: 'Zaprto do 1. 4.',
+      team: 'Ekipa Felix Bar & Food',
+      seeMenu: 'Ogled ponudbe & menija',
     }
   },
   en: {
-    nav: { menu: 'Menu', gallery: 'Gallery', contact: 'Contact' },
+    nav: { thanks: 'Thank You', menu: 'Menu', gallery: 'Gallery', contact: 'Contact' },
     hero: { title: 'Felix Bar & Food', subtitle: 'Local vibes and great food in Bovec', cta: 'See Menu' },
     gallery: { title: 'Guests\' Moments' },
     menu: {
@@ -115,12 +128,25 @@ export const dict = {
       findUs: 'Find us',
       success: 'Message sent',
       hoursTitle: 'Opening Hours',
-      hours: 'Sat Oct 3 & Sun Oct 4: CLOSED\nOct 5 – Oct 31: 12:00 - 15:00 & 18:00 - 22:00\n(Kitchen: 12:00 - 14:30 & 18:00 - 21:00)\nNov 1, 2026 – Apr 1, 2027: CLOSED',
+      hours: 'CLOSED UNTIL APRIL 1, 2027 (Winter Break)\nA heartfelt thank you to all our guests for the 2026 season!\nSee you on April 1, 2027.',
       reservationsNotice: 'Reservations are not possible in July and August. Outside the summer season, we accept reservations for larger groups.',
+    },
+    notice: {
+      banner: 'The restaurant is closed until April 1st. Heartfelt thanks to all our guests for a wonderful season!',
+      badge: 'WINTER BREAK • UNTIL APR 1, 2027',
+      title: 'Dear Guests, Thank You!',
+      subtitle: 'The 2026 season has concluded. We will reopen on April 1, 2027.',
+      text1: 'Another unforgettable season in Bovec has come to a close, filled with delicious food, wonderful encounters, and great memories. We would like to express our deepest gratitude to all our local and international guests for visiting us and bringing great energy to our bar.',
+      text2: 'We are now taking our well-deserved winter break. In spring, we look forward to welcoming you back with fresh energy, great burgers, and cold beers! Wishing you a lovely and peaceful winter.',
+      reopeningTitle: 'Reopening Date',
+      reopeningDate: 'April 1, 2027',
+      status: 'Closed until April 1',
+      team: 'The Felix Bar & Food Team',
+      seeMenu: 'View our menu & offer',
     }
   },
   it: {
-    nav: { menu: 'Menu', gallery: 'Galleria', contact: 'Contatto' },
+    nav: { thanks: 'Ringraziamenti', menu: 'Menu', gallery: 'Galleria', contact: 'Contatto' },
     hero: { title: 'Felix Bar & Food', subtitle: 'Atmosfera locale e ottimo cibo a Bovec', cta: 'Vedi Menu' },
     gallery: { title: 'Momenti dei Nostri Ospiti' },
     menu: {
@@ -174,12 +200,25 @@ export const dict = {
       findUs: 'Dove siamo',
       success: 'Messaggio inviato',
       hoursTitle: 'Orari di Apertura',
-      hours: 'Sab 3 e dom 4 ott: CHIUSO\n5 – 31 ott: 12:00 - 15:00 & 18:00 - 22:00\n(Cucina: 12:00 - 14:30 & 18:00 - 21:00)\n1 nov 2026 – 1 apr 2027: CHIUSO',
+      hours: 'CHIUSO FINO AL 1° APRILE 2027 (Pausa Invernale)\nUn grazie di cuore a tutti i nostri ospiti per la stagione 2026!\nCi vediamo il 1° aprile 2027.',
       reservationsNotice: 'Le prenotazioni non sono possibili in luglio e agosto. Al di fuori della stagione estiva, accettiamo prenotazioni per gruppi numerosi.',
+    },
+    notice: {
+      banner: 'Il ristorante è chiuso fino al 1° aprile. Un caloroso grazie a tutti i nostri ospiti per la splendida stagione!',
+      badge: 'PAUSA INVERNALE • FINO AL 1° APR 2027',
+      title: 'Cari Ospiti, Grazie di Cuore!',
+      subtitle: 'La stagione 2026 è terminata. Riapriremo il 1° aprile 2027.',
+      text1: 'Un\'altra indimenticabile stagione a Bovec si è conclusa, ricca di sapori autentici, splendidi incontri e momenti speciali. Ringraziamo di cuore tutti i nostri clienti per ogni visita, per i sorrisi e per la splendida energia che avete portato da noi.',
+      text2: 'Ora ci prendiamo una meritata pausa invernale. In primavera torneremo carichi con fantastici burger, birre fresche e tanta allegria! Vi auguriamo un felice e sereno inverno.',
+      reopeningTitle: 'Riapertura',
+      reopeningDate: '1° aprile 2027',
+      status: 'Chiuso fino al 1° aprile',
+      team: 'Il Team di Felix Bar & Food',
+      seeMenu: 'Consulta il nostro menu',
     }
   },
   de: {
-    nav: { menu: 'Menü', gallery: 'Galerie', contact: 'Kontakt' },
+    nav: { thanks: 'Dankeschön', menu: 'Menü', gallery: 'Galerie', contact: 'Kontakt' },
     hero: { title: 'Felix Bar & Food', subtitle: 'Lokale Atmosphäre und gutes Essen in Bovec', cta: 'Menü ansehen' },
     gallery: { title: 'Gäste-Momente' },
     menu: {
@@ -233,12 +272,25 @@ export const dict = {
       findUs: 'Wo wir sind',
       success: 'Nachricht gesendet',
       hoursTitle: 'Öffnungszeiten',
-      hours: 'Sa. 3. 10. & So. 4. 10.: GESCHLOSSEN\n5. 10. – 31. 10.: 12:00 - 15:00 & 18:00 - 22:00\n(Küche: 12:00 - 14:30 & 18:00 - 21:00)\n1. 11. 2026 – 1. 4. 2027: GESCHLOSSEN',
+      hours: 'GESCHLOSSEN BIS 1. APRIL 2027 (Winterpause)\nHerzlichen Dank an alle Gäste für die Saison 2026!\nWir sehen uns am 1. April 2027.',
       reservationsNotice: 'Im Juli und August sind keine Reservierungen möglich. Außerhalb der Sommersaison nehmen wir Reservierungen für größere Gruppen entgegen.',
+    },
+    notice: {
+      banner: 'Das Restaurant ist bis zum 1. April geschlossen. Herzlichen Dank an alle Gäste für die wunderbare Saison!',
+      badge: 'WINTERPAUSE • BIS 1. APR 2027',
+      title: 'Liebe Gäste, herzlichen Dank!',
+      subtitle: 'Die Saison 2026 ist beendet. Wir öffnen wieder am 1. April 2027.',
+      text1: 'Eine weitere unvergessliche Saison in Bovec geht zu Ende, erfüllt von gutem Essen, schönen Begegnungen und tollen Erinnerungen. Wir danken all unseren einheimischen und internationalen Gästen von ganzem Herzen für Ihren Besuch und die wunderbare Energie.',
+      text2: 'Wir verabschieden uns nun in die wohlverdiente Winterpause. Im Frühjahr freuen wir uns darauf, Sie wieder mit frischen Burgern und kühlen Getränken zu begrüßen! Wir wünschen Ihnen einen schönen Winter.',
+      reopeningTitle: 'Wiedereröffnung',
+      reopeningDate: '1. April 2027',
+      status: 'Geschlossen bis 1. April',
+      team: 'Das Team von Felix Bar & Food',
+      seeMenu: 'Menü & Angebot ansehen',
     }
   },
   fr: {
-    nav: { menu: 'Menu', gallery: 'Galerie', contact: 'Contact' },
+    nav: { thanks: 'Remerciements', menu: 'Menu', gallery: 'Galerie', contact: 'Contact' },
     hero: { title: 'Felix Bar & Food', subtitle: 'Ambiance locale et bonne cuisine à Bovec', cta: 'Voir le Menu' },
     gallery: { title: 'Moments de nos invités' },
     menu: {
@@ -292,12 +344,25 @@ export const dict = {
       findUs: 'Nous trouver',
       success: 'Message envoyé',
       hoursTitle: 'Heures d\'ouverture',
-      hours: 'Sam. 3 et dim. 4 oct. : FERMÉ\n5 oct. – 31 oct. : 12:00 - 15:00 & 18:00 - 22:00\n(Cuisine : 12:00 - 14:30 & 18:00 - 21:00)\n1er nov. 2026 – 1er avr. 2027 : FERMÉ',
+      hours: 'FERMÉ JUSQU\'AU 1ER AVRIL 2027 (Pause Hivernale)\nUn grand merci à tous nos clients pour la saison 2026 !\nRendez-vous le 1er avril 2027.',
       reservationsNotice: 'Les réservations ne sont pas possibles en juillet et en août. En dehors de la saison estivale, nous acceptons les réservations pour les grands groupes.',
+    },
+    notice: {
+      banner: 'Le restaurant est fermé jusqu\'au 1er avril. Un grand merci à tous nos clients pour cette magnifique saison !',
+      badge: 'PAUSE HIVERNALE • JUSQU\'AU 1ER AVR 2027',
+      title: 'Chers Clients, Merci du Fond du Cœur !',
+      subtitle: 'La saison 2026 est terminée. Réouverture le 1er avril 2027.',
+      text1: 'Une autre saison inoubliable à Bovec s\'achève, ponctuée de moments chaleureux, de délices partagés et de belles rencontres. Nous remercions sincèrement tous nos clients pour leurs visites et leur formidable énergie.',
+      text2: 'Nous prenons désormais un repos hivernal bien mérité. Nous serons ravis de vous retrouver au printemps avec de nouvelles forces, de délicieux burgers et des boissons fraîches ! Très bel hiver à tous.',
+      reopeningTitle: 'Réouverture',
+      reopeningDate: '1er avril 2027',
+      status: 'Fermé jusqu\'au 1er avril',
+      team: 'L\'Équipe Felix Bar & Food',
+      seeMenu: 'Découvrir notre carte',
     }
   },
   es: {
-    nav: { menu: 'Menú', gallery: 'Galería', contact: 'Contacto' },
+    nav: { thanks: 'Agradecimiento', menu: 'Menú', gallery: 'Galería', contact: 'Contacto' },
     hero: { title: 'Felix Bar & Food', subtitle: 'Vibras locales y comida deliciosa en Bovec', cta: 'Nuestro menú' },
     gallery: { title: 'Momentos de nuestros clientes' },
     menu: {
@@ -351,8 +416,21 @@ export const dict = {
       findUs: 'Dónde estamos',
       success: 'Mensaje enviado',
       hoursTitle: 'Horario de apertura',
-      hours: 'Sáb 3 y dom 4 de oct: CERRADO\n5 – 31 de oct: 12:00 - 15:00 & 18:00 - 22:00\n(Cocina: 12:00 - 14:30 & 18:00 - 21:00)\n1 de nov 2026 – 1 de abr 2027: CERRADO',
+      hours: 'CERRADO HASTA EL 1 DE ABRIL DE 2027 (Pausa Invernal)\n¡Muchas gracias a todos por la temporada 2026!\nNos vemos el 1 de abril de 2027.',
       reservationsNotice: 'Las reservas no son posibles en julio y agosto. Fuera de la temporada de verano, aceptamos reservas para grupos más grandes.',
+    },
+    notice: {
+      banner: 'El restaurante está cerrado hasta el 1 de abril. ¡Muchas gracias a todos nuestros clientes por una maravillosa temporada!',
+      badge: 'PAUSA INVERNAL • HASTA 1 DE ABR 2027',
+      title: 'Estimados Clientes, ¡Muchas Gracias!',
+      subtitle: 'La temporada 2026 ha finalizado. Volveremos a abrir el 1 de abril de 2027.',
+      text1: 'Ha finalizado otra temporada inolvidable en Bovec, repleta de deliciosos sabores y grandes momentos. Agradecemos de corazón a todos los clientes por sus visitas y la excelente energía que compartieron con nosotros.',
+      text2: 'Nos tomamos ahora un merecido descanso invernal. ¡En primavera volveremos con nuevas fuerzas, ricas hamburguesas y bebidas bien frías! Les deseamos un feliz y apacible invierno.',
+      reopeningTitle: 'Reapertura',
+      reopeningDate: '1 de abril de 2027',
+      status: 'Cerrado hasta el 1 de abril',
+      team: 'El Equipo de Felix Bar & Food',
+      seeMenu: 'Ver nuestra carta',
     }
   }
 };
